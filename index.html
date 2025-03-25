@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="./img/">
     <title>BestellApp</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/basket.css">
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/script.js" defer></script>
 </head>
 <body>
     <section>
@@ -17,7 +20,54 @@
             </a>
         </header>
     </section>
-    <section>    
+    <section class="content-wrapper>">
+        <section class="content">
+            <section class="display-restaurant">
+                <div class="restaurant-img">
+                    <div class="bg-img" id="welcome-img">
+                    </div>
+                    <div class="restaurant-logo" id="restaurant-logo">
+                    </div>
+                </div>
+                <div class="restaurant-data">
+                    <h1 id="restaurant-name"></h1>
+                    <p class="rating" id="rating-p-tag">
+                        Bewertung (4,2 von 5 Stern)
+                    </p>
+                </div>
+                <nav class="food-navbar">
+                    <a href="#main-dish">Hauptgericht</a>
+                </nav>
+            </section>
+            <section id="main-dish">
+                <div class="food-bg-img" id="main-dish-food-bg">
+                </div>
+                <h2>Hauptgericht</h2>
+                <div id="div-for-main-dishes">
+                    <div class="a-dish-template" id="$">
+                        <h3 id="dish-name-$"></h3>
+                        <button class="add-btn" id="add-btn">+</button>
+                        <p class="dish-description" id="dish-description-$"></p>
+                        <p class="dish-price" id="dish-price-$"></p>
+                    </div>
+                </div>
+            </section>
+            <section id="side-dish">
+                <div class="food-bg-img" id="side-dish-food-bg">
+                </div>
+                <h2>Beilage</h2>
+                <div id="div-for-side-dishes">
+                    <div class="a-dish-template" id="$">
+                        <h3 id="dish-name-$"></h3>
+                        <button class="add-btn" id="add-btn">+</button>
+                        <p class="dish-description" id="dish-description-$"></p>
+                        <p class="dish-price" id="dish-price-$"></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="basket-wrapper">    
         <div class="basket">
             <h2>Warenkorb</h2>
             <div class="current-basket" id="current-basket">
@@ -54,50 +104,6 @@
             </div>
         </div>
     </section>
-    <div class="container">
-        <section>
-            <div>
-                <div class="bg-img" id="welcome-img">
-                </div>
-            </div>
-            <div class="restaurant-logo">
-            </div>
-            <div class="restaurant-data">
-                <h1 id="restaurant-name"></h1>
-                <p class="rating" id="rating-p-tag">
-                    Bewertung (4,2 von 5 Stern)
-                </p>
-            </div>
-            <nav class="food-navbar">
-                <a href="#main-dish">Hauptgericht</a>
-            </nav>
-        </section>
-        <section id="main-dish">
-            <div class="food-bg-img" id="main-dish-food-bg">
-            </div>
-            <h2>Hauptgericht</h2>
-            <div id="div-for-main-dishes">
-                <div class="a-dish" id="$">
-                    <h3 id="dish-name-$"></h3>
-                    <button class="add-btn" id="add-btn">+</button>
-                    <p class="dish-description" id="dish-description-$"></p>
-                    <p class="dish-price" id="dish-price-$"></p>
-                </div>
-            </div>
-        </section>
-        id="side-dish">
-            <div class="food-bg-img" id="side-dish-food-bg">
-            </div>
-            <h2>Beilage</h2>
-            <div id="div-for-side-dishes">
-                <div class="a-dish" id="$">
-                    <h3 id="dish-name-$"></h3>
-                    <button class="add-btn" id="add-btn">+</button>
-                    <p class="dish-description" id="dish-description-$"></p>
-                    <p class="dish-price" id="dish-price-$"></p>
-                </div>
-            </div>
-        </section>
-    </div>
+    
 </body>
 </html>
