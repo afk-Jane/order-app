@@ -8,8 +8,6 @@ function init(){
     renderDesserts();
 }
 
-//render: basket, basket-price
-//localStorage load, save
 function renderMainDishes() {
     let mainDishesRef = document.getElementById('div-for-main-dishes');
     mainDishesRef.innerHTML = '';
@@ -47,14 +45,79 @@ function renderDesserts() {
 function renderBasket() {
     let basketRef = document.getElementById("current-basket");
     basketRef.innerHTML = "";
+    basket.forEach((dish) => {
+        basketRef.innerHTML += getBasketDishTemplate(dish);
+    })
+    renderSubtotal();
+    renderTotal();
 }
 
-function addToBasket(indexDish) {
-    basket.push(indexDish);
-    saveToLocalStorage();
-    renderBasket();
+function addToBasket(id) {
+    let dish = basket.find(d => d.id === id);
+    if (dish) {
+        dish.amount++;
+        renderBasketDish(id);
+    } else {
+        let newDish = restaurant[0].maindishes.find(d => d.id === id) ||
+                      restaurant[0].sidedishes.find(d => d.id === id) ||
+                      restaurant[0].pizzas.find(d => d.id === id) ||
+                      restaurant[0].desserts.find(d => d.id === id);
+        if (newDish) {
+            basket.push({ ...newDish, amount: 1 });
+            renderBasket();
+        }
+    }
+    renderSubtotal();
+    renderTotal();
 }
 
 function saveToLocalStorage() {
     
+}
+
+function loadFromLocalStorage(){
+
+}
+
+function renderBasketDish(id) {
+    let basketDishRef = document.getElementById(`basketDish-${id}`);
+    let dish = basket.find(d => d.id === id);
+    if (!dish) return;
+    if (dish.amount === 0) {
+        basketDishRef.remove();
+        return;
+    }
+    basketDishRef.querySelector('.current-amount').innerText = dish.amount;
+    basketDishRef.querySelector('.dish-price').innerText = `${dish.price.toFixed(2)}€`;
+    basketDishRef.querySelector('.total-price').innerText = `${(dish.amount * dish.price).toFixed(2)}€`;
+    renderSubtotal();
+    renderTotal();
+}
+
+function renderSubtotal() {
+    let subtotalRef = document.getElementById("subtotal-sum");
+    let subtotal = basket.reduce((sum, dish) => sum + dish.amount * dish.price, 0);
+    subtotalRef.innerText = `${subtotal.toFixed(2)}€`;
+}
+
+function renderTotal() {
+    let totalRef = document.getElementById("total-price");
+    let deliveryCost = 3;
+    let subtotal = basket.reduce((sum, dish) => sum + dish.amount * dish.price, 0);
+    let total = subtotal + deliveryCost;
+    totalRef.innerText = `${total.toFixed(2)}€`;
+}
+
+function removeFromBasket(id) {
+    let index = basket.findIndex(d => d.id === id);
+    if (index !== -1) {
+        if (basket[index].amount > 1) {
+            basket[index].amount--;
+        } else {
+            basket.splice(index, 1);
+        }
+    }
+    renderBasketDish(id);
+    renderSubtotal();
+    renderTotal();
 }
