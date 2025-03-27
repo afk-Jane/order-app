@@ -1,7 +1,6 @@
 //variablen
 let basket = [];
 
-
 function init(){
     renderMainDishes();
     renderSideDishes();
@@ -43,4 +42,19 @@ function renderDesserts() {
     restaurant[0].desserts.forEach((dish, indexDish) => {
         dessertRef.innerHTML += getDishTemplate(dish, indexDish);
     });
+}
+
+function renderBasket() {
+    let basketRef = document.getElementById("current-basket");
+    basketRef.innerHTML = "";
+}
+
+function addToBasket(indexDish) {
+    basket.push(indexDish);
+    saveToLocalStorage();
+    renderBasket();
+}
+
+function saveToLocalStorage() {
+    
 }

@@ -32,13 +32,6 @@ header{
     padding: 0;
 }
 
-.basket-wrapper{
-    width: 300px;
-    display: flex;
-    flex-grow: 1;
-    
-}
-
 .content{
     width: 80%;
 }
@@ -57,7 +50,7 @@ header{
     width: 128px;
     background-image: url(./img/DAS_BUFFET_logo.jpg);
     z-index: 1000;
-    margin: -288px 50%;
+    margin: -288px 40%;
 }
 
 .restaurant-img{
@@ -121,10 +114,19 @@ a{
     justify-content: space-between;
 }
 
+.btn-div-designe{
+    border: solid 2px #efefef;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
 .add-btn{
     color: #ff8000;
-    border: solid 2px #efefef;
+    border: none;
     background-color: white;
+    font-size: xx-large;   
 }
 
 .main-dishes, .side-dishes, .pizzas, .desserts{
