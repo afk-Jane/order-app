@@ -83,7 +83,7 @@ h1{
 nav{
     display: flex;
     font-size: 20px;
-    gap: 12px;
+    gap: 16px;
     padding: 8px 16px;
     background-color: #f7f6f1;
 }
@@ -109,4 +109,33 @@ a{
 #pizza-bg{
     background-image: url(./img/pizza.jpg);
 }
+
+.a-dish-template{
+ border: solid 2px #efefef;
+ padding: 12px;
+ margin-bottom: 16px;
+}
+
+.dish-first-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-btn{
+    color: #ff8000;
+    border: solid 2px #efefef;
+    background-color: white;
+}
+
+.main-dishes, .side-dishes, .pizzas, .desserts{
+    padding: 12px;
+}
+
+.dish-price{
+    color: #ff8000;
+    font-weight: bold;
+}
+
+
+
 
