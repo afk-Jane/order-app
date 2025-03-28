@@ -121,3 +121,28 @@ function removeFromBasket(id) {
     renderSubtotal();
     renderTotal();
 }
+
+function oneMoreDish(id) {
+    let dish = basket.find(d => d.id === id);
+    if (dish) {
+        dish.amount++;
+        renderBasketDish(id);
+        renderSubtotal();
+        renderTotal();
+    }
+}
+
+function oneLessDish(id) {
+    let dishIndex = basket.findIndex(d => d.id === id);
+    if (dishIndex !== -1) {
+        if (basket[dishIndex].amount > 1) {
+            basket[dishIndex].amount--;
+            renderBasketDish(id);
+        } else {
+            basket.splice(dishIndex, 1);
+            renderBasket();
+        }
+        renderSubtotal();
+        renderTotal();
+    }
+}
