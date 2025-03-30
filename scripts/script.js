@@ -87,9 +87,18 @@ function renderBasketDish(id) {
         basketDishRef.remove();
         return;
     }
-    basketDishRef.querySelector('.current-amount').innerText = dish.amount;
-    basketDishRef.querySelector('.dish-price').innerText = `${dish.price.toFixed(2)}€`;
-    basketDishRef.querySelector('.total-price').innerText = `${(dish.amount * dish.price).toFixed(2)}€`;
+    let pricePerDishElement = basketDishRef.querySelector(`#price-per-dish-${id}`);
+    if (pricePerDishElement) {
+        pricePerDishElement.innerText = `${dish.price.toFixed(2)}€`;
+    }
+    let totalPricePerDishElement = basketDishRef.querySelector(`#total-price-per-dishes-${id}`);
+    if (totalPricePerDishElement) {
+        totalPricePerDishElement.innerText = `${(dish.amount * dish.price).toFixed(2)}€`;
+    }
+    let currentAmountElement = basketDishRef.querySelector('.current-amount');
+    if (currentAmountElement) {
+        currentAmountElement.innerText = dish.amount;
+    }
     renderSubtotal();
     renderTotal();
 }

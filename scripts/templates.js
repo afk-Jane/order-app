@@ -21,12 +21,12 @@ function getBasketDishTemplate(dish) {
         <div class="basket-dish-template" id="basketDish-${dish.id}">
             <h3 id="dish-name-${dish.id}">${dish.name}</h3>
             <div class='amount-btns'>
-                <button class="plus-btn" id="plus-btn-${dish.id}" onclick="oneMoreDish(${dish.id})">+</button>
+            <button class="minus-btn" id="minus-btn-${dish.id}" onclick="oneLessDish(${dish.id})">-</button>
                 <p class='current-amount' id="current-amount-${dish.id}">${dish.amount}</p>
-                <button class="minus-btn" id="minus-btn-${dish.id}" onclick="oneLessDish(${dish.id})">-</button>
+                <button class="plus-btn" id="plus-btn-${dish.id}" onclick="oneMoreDish(${dish.id})">+</button>
             </div>    
-            <p class="dish-price" id="dish-price-${dish.id}">${formattedPrice}€</p>
-            <p class='total-price' id="total-price-${dish.id}">${totalDishPrice}€</p>
+            <p class="price-per-dish" id="price-per-dish-${dish.id}">${formattedPrice}€</p>
+            <p class='total-price-per-dishes' id="total-price-per-dishes-${dish.id}">${totalDishPrice}€</p>
         </div>
     `;
 }
