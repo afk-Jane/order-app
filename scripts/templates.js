@@ -19,9 +19,12 @@ function getBasketDishTemplate(dish) {
     let totalDishPrice = (dish.price * dish.amount).toFixed(2);
     return /*html*/`
         <div class="basket-dish-template" id="basketDish-${dish.id}">
-            <h3 id="dish-name-${dish.id}">${dish.name}</h3>
+            <div class='dishname-N-delete'>
+                <h3 id="dish-name-${dish.id}">${dish.name}</h3>
+                <button class='delete-btn' id='basket-delete-btn' onclick='deleteBasketDish()'>X</button>
+            </div>
             <div class='amount-btns'>
-            <button class="minus-btn" id="minus-btn-${dish.id}" onclick="oneLessDish(${dish.id})">-</button>
+                <button class="minus-btn" id="minus-btn-${dish.id}" onclick="oneLessDish(${dish.id})">-</button>
                 <p class='current-amount' id="current-amount-${dish.id}">${dish.amount}</p>
                 <button class="plus-btn" id="plus-btn-${dish.id}" onclick="oneMoreDish(${dish.id})">+</button>
             </div>    

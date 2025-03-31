@@ -2,6 +2,10 @@
 let basket = [];
 
 function init(){
+    let basketToggleBtn = document.getElementById('basket-toggle-btn');
+    if (basketToggleBtn) {
+        basketToggleBtn.addEventListener('click', toggleBasket);
+    }
     renderMainDishes();
     renderSideDishes();
     renderPizzas();
@@ -115,6 +119,7 @@ function renderTotal() {
     let subtotal = basket.reduce((sum, dish) => sum + dish.amount * dish.price, 0);
     let total = subtotal + deliveryCost;
     totalRef.innerText = `${total.toFixed(2)}€`;
+    updateBasketBtn()
 }
 
 function removeFromBasket(id) {
@@ -154,4 +159,34 @@ function oneLessDish(id) {
         renderSubtotal();
         renderTotal();
     }
+}
+
+function deleteBasketDish(){
+
+}
+
+function toggleBasket() {
+    let basketWrapperRef = document.querySelector('.basket-wrapper');
+    let toggleBtn = document.getElementById('toggle-basket-btn');
+    basketWrapperRef.classList.toggle('open');
+    if (basketWrapperRef.classList.contains('open')) {
+        toggleBtn.innerText = "Schließen";
+    } else {
+        updateBasketBtn();
+    }
+}
+
+function updateBasketBtn() {
+    let total = basket.reduce((sum, dish) => sum + dish.amount * dish.price, 0) + 3;
+    document.getElementById("toggle-basket-btn").innerText = `Warenkorb (${total.toFixed(2)}€)`;
+}
+
+function openBasket() {
+    let basketWrapper = document.querySelector('.basket-wrapper');
+    basketWrapper.classList.add('open');
+}
+
+function closeBasket() {
+    let basketWrapper = document.querySelector('.basket-wrapper');
+    basketWrapper.classList.remove('open');
 }

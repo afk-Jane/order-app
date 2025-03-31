@@ -10,6 +10,11 @@ html, body{
     src: url(fonts/Raleway-VariableFont_wght.ttf);
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+}
+
 header{
     background-color: #ff8000;
     height: 64px;
@@ -84,6 +89,7 @@ nav{
 a{
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 .food-bg-img{
@@ -104,9 +110,9 @@ a{
 }
 
 .a-dish-template{
- border: solid 2px #efefef;
- padding: 12px;
- margin-bottom: 16px;
+    border: solid 2px #efefef;
+    padding: 12px;
+    margin-bottom: 16px;
 }
 
 .dish-first-row{
@@ -126,7 +132,8 @@ a{
     color: #ff8000;
     border: none;
     background-color: white;
-    font-size: xx-large;   
+    font-size: xx-large;
+    cursor: pointer;   
 }
 
 .main-dishes, .side-dishes, .pizzas, .desserts{
@@ -138,6 +145,23 @@ a{
     font-weight: bold;
 }
 
+.mini-logo{
+    background-image: url(./img/android-chrome-192x192.png);    
+    height: 56px;
+    width: 56px;
+}
 
+footer{
+    height: 64px;
+    background-color:#ff8000;
+    display: flex;
+    
+    
+}
+
+
+@media (max-width: 680px) {
+    
+}
 
 
