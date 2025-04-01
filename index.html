@@ -21,6 +21,10 @@
                 <a href="">
                     <img src="">
                 </a>
+                <div class="basket-menu display-none">
+                    <p class="basket-menu-p-tag"></p>
+                    <img src="./img/delivery-app/shopping-cart.png">
+                </div>
             </header>
         </section>
         <div class="container">
@@ -116,33 +120,32 @@
                 </section>
             </section>
         </div>
+        <button class="basket-toggle-btn" id="basket-toggle-btn">
+            Warenkorb (<p id="cart-total-price">0.00</p>€)
+        </button>
         <footer>
             <div class="mini-logo"></div>
         </footer>
-
-        <button class="basket-toggle-btn" id="basket-toggle-btn">
-            Warenkorb (€<p id="cart-total-price">0.00</p>)
-        </button>
-        <div class="basket-overlay" id="basket-overlay">
-            <div class="basket">
-                <button class="basket-close-btn" id="close-basket">X</button>
+        <div class="basket-overlay display-none" id="basket-overlay">
+            <div class="basket-O">
+                <button class="basket-O-close-btn" id="close-basket">X</button>
                 <h2>Warenkorb</h2>
-                <div class="current-basket" id="current-basket-overlay">
+                <div class="current-basket-O" id="current-basket-overlay">
                 </div>
-                <div class="fancy-line"></div>
-                <div class="bill">
+                <div class="fancy-line-O"></div>
+                <div class="bill-O">
                     <table>
-                        <tr class="subtotal">
+                        <tr class="subtotal-O">
                             <td>Zwischensumme</td>
-                            <td class="price-tags" id="subtotal-sum"></td>
+                            <td class="price-tags-O" id="subtotal-sum"></td>
                         </tr>
-                        <tr class="deliverycost">
+                        <tr class="deliverycost-O">
                             <td>Lieferkosten</td>
-                            <td class="price-tags">3€</td>
+                            <td class="price-tags-O">3€</td>
                         </tr>
-                        <tr class="total">
+                        <tr class="total-O">
                             <td>Gesamt</td>
-                            <td class="price-tags" id="total-price"></td>
+                            <td class="price-tags-O" id="total-price"></td>
                         </tr>
                     </table>
                 </div>
